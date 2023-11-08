@@ -1,0 +1,1 @@
+var posts=["2023/11/08/2023Java项目实战《苍穹外卖》/","2023/11/05/Alist开机自动启动/","2022/08/09/Markdown语法/","2023/11/06/Linux课程笔记/","2023/10/31/hello-world/","2023/11/07/在Linux系统上安装docker/","2023/11/06/帮你提高工作效率/","2023/11/01/第一篇博客/","2023/11/06/虚拟机安装Linux操作系统/","2023/11/08/《苍穹外卖》官方讲义/"];function toRandomPost(){pjax.loadUrl('/'+posts[Math.floor(Math.random() * posts.length)]);};
