@@ -289,7 +289,7 @@
       <link href="/css/custom.css"/>
       <url>/css/custom.css</url>
       
-        <content type="html"><![CDATA[/* 欢迎信息 */#welcome-info {    background: linear-gradient(45deg, #d1ebea, #e3fbf9);    border-radius: 18px;    padding: 8px;  }  [data-theme="dark"] #welcome-info {    background: #212121;  }]]></content>
+        <content type="html"><![CDATA[/* 欢迎信息 */#welcome-info {    background: linear-gradient(45deg, #e6f5f4, #e7f0ef);    border-radius: 18px;    padding: 8px;  }  [data-theme="dark"] #welcome-info {    background: #212121;  }]]></content>
       
     </entry>
     
