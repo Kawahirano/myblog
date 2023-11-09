@@ -4,6 +4,33 @@
   
     
     <entry>
+      <title>为你的博客添加评论功能</title>
+      <link href="/posts/3022c1d6.html"/>
+      <url>/posts/3022c1d6.html</url>
+      
+        <content type="html"><![CDATA[<h2 id="新建一个数据库"><a href="#新建一个数据库" class="headerlink" title="新建一个数据库"></a>新建一个数据库</h2><p>首先登录<a href="https://www.mongodb.com/">MongoDB官网</a>,没有账号点<a href="https://www.mongodb.com/cloud/atlas/register">这里</a>,注册一个，登录成功之后</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 教程 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> hexo </tag>
+            
+            <tag> MongoDB </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>《苍穹外卖》官方讲义</title>
       <link href="/posts/65353.html"/>
       <url>/posts/65353.html</url>
@@ -236,9 +263,9 @@
     
     
     <entry>
-      <title>分类</title>
-      <link href="/categories/index.html"/>
-      <url>/categories/index.html</url>
+      <title>相册集</title>
+      <link href="/album/index.html"/>
+      <url>/album/index.html</url>
       
         <content type="html"><![CDATA[]]></content>
       
@@ -247,9 +274,9 @@
     
     
     <entry>
-      <title>相册集</title>
-      <link href="/album/index.html"/>
-      <url>/album/index.html</url>
+      <title>分类</title>
+      <link href="/categories/index.html"/>
+      <url>/categories/index.html</url>
       
         <content type="html"><![CDATA[]]></content>
       
@@ -291,9 +318,9 @@
     
     
     <entry>
-      <title>link</title>
-      <link href="/link/index.html"/>
-      <url>/link/index.html</url>
+      <title>音乐馆</title>
+      <link href="/music/index.html"/>
+      <url>/music/index.html</url>
       
         <content type="html"><![CDATA[]]></content>
       
@@ -302,9 +329,9 @@
     
     
     <entry>
-      <title>音乐馆</title>
-      <link href="/music/index.html"/>
-      <url>/music/index.html</url>
+      <title>link</title>
+      <link href="/link/index.html"/>
+      <url>/link/index.html</url>
       
         <content type="html"><![CDATA[]]></content>
       
