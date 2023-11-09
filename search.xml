@@ -8,7 +8,7 @@
       <link href="/posts/3022c1d6.html"/>
       <url>/posts/3022c1d6.html</url>
       
-        <content type="html"><![CDATA[<h2 id="新建一个数据库"><a href="#新建一个数据库" class="headerlink" title="新建一个数据库"></a>新建一个数据库</h2><p>首先登录<a href="https://www.mongodb.com/">MongoDB官网</a>,没有账号点<a href="https://www.mongodb.com/cloud/atlas/register">这里</a>,注册一个，登录成功之后</p><p><img src="https://cdn.jsdelivr.net/gh/Kawahirano/tobed/202311091944094.png" alt="image-20231109194436936"></p><p><img src="https://cdn.jsdelivr.net/gh/Kawahirano/tobed/202311091945190.png" alt="image-20231109194537121"></p><p><img src="https://cdn.jsdelivr.net/gh/Kawahirano/tobed/202311091947258.png" alt="image-20231109194746176"></p><p><img src="https://cdn.jsdelivr.net/gh/Kawahirano/tobed/202311091949648.png" alt="image-20231109194906563"></p><h2 id="登录vercel"><a href="#登录vercel" class="headerlink" title="登录vercel"></a>登录vercel</h2><p>登录到<a href="https://vercel.com/">vercel</a>,没有的同样注册一个</p><p>进入<a href="https://twikoo.js.org/backend.html#vercel-%E9%83%A8%E7%BD%B2">twikoo</a>,点击<strong>Deploy</strong>将 Twikoo 一键部署到 Vercel</p><p><img src="https://cdn.jsdelivr.net/gh/Kawahirano/tobed/202311091953177.png"></p><p><img src="https://cdn.jsdelivr.net/gh/Kawahirano/tobed/202311091955563.png" alt="image-20231109195523446"></p><p><img src="https://cdn.jsdelivr.net/gh/Kawahirano/tobed/202311091956997.png" alt="image-20231109195640935"></p><p><img src="https://cdn.jsdelivr.net/gh/Kawahirano/tobed/202311091959982.png" alt="image-20231109195942882"></p><p><img src="https://cdn.jsdelivr.net/gh/Kawahirano/tobed/202311092001487.png" alt="image-20231109200111413"></p><p><img src="https://cdn.jsdelivr.net/gh/Kawahirano/tobed/202311092001241.png" alt="image-20231109200137144"></p><p><img src="https://cdn.jsdelivr.net/gh/Kawahirano/tobed/202311092002102.png" alt="image-20231109200249035"></p><p><img src="https://cdn.jsdelivr.net/gh/Kawahirano/tobed/202311092003324.png" alt="image-20231109200311249"></p><p>mongodb+srv:&#x2F;&#x2F;admin:<a href="mailto:&#x31;&#x32;&#x33;&#52;&#x35;&#54;&#x37;&#56;&#46;&#x40;&#x63;&#108;&#x75;&#x73;&#116;&#x65;&#x72;&#48;&#46;&#111;&#49;&#111;&#113;&#50;&#103;&#x6f;&#46;&#109;&#111;&#x6e;&#103;&#111;&#x64;&#98;&#x2e;&#110;&#101;&#x74;">&#x31;&#x32;&#x33;&#52;&#x35;&#54;&#x37;&#56;&#46;&#x40;&#x63;&#108;&#x75;&#x73;&#116;&#x65;&#x72;&#48;&#46;&#111;&#49;&#111;&#113;&#50;&#103;&#x6f;&#46;&#109;&#111;&#x6e;&#103;&#111;&#x64;&#98;&#x2e;&#110;&#101;&#x74;</a>&#x2F;?retryWrites&#x3D;true&amp;w&#x3D;majority</p><p><img src="https://cdn.jsdelivr.net/gh/Kawahirano/tobed/202311092004519.png" alt="image-20231109200456440"></p><p><img src="https://cdn.jsdelivr.net/gh/Kawahirano/tobed/202311092005691.png" alt="image-20231109200547622"></p><p><img src="https://cdn.jsdelivr.net/gh/Kawahirano/tobed/202311092007774.png" alt="image-20231109200702653"></p><p><img src="https://cdn.jsdelivr.net/gh/Kawahirano/tobed/202311092007853.png" alt="image-20231109200747805"></p><p><img src="https://cdn.jsdelivr.net/gh/Kawahirano/tobed/202311092009219.png" alt="image-20231109200906162"></p><p><img src="https://cdn.jsdelivr.net/gh/Kawahirano/tobed/202311092009489.png" alt="image-20231109200957373"></p><p><img src="https://cdn.jsdelivr.net/gh/Kawahirano/tobed/202311092011374.png" alt="image-20231109201156312"></p><p><img src="https://cdn.jsdelivr.net/gh/Kawahirano/tobed/202311092014963.png" alt="image-20231109201436914"></p><p><img src="https://cdn.jsdelivr.net/gh/Kawahirano/tobed/202311092015775.png" alt="image-20231109201518695"></p><p><img src="https://cdn.jsdelivr.net/gh/Kawahirano/tobed/202311092018624.png" alt="image-20231109201833586"></p><p><img src="https://cdn.jsdelivr.net/gh/Kawahirano/tobed/202311092020652.png" alt="image-20231109202031617"></p><p><img src="https://cdn.jsdelivr.net/gh/Kawahirano/tobed/202311092031876.png" alt="image-20231109203155834"></p><p><img src="https://cdn.jsdelivr.net/gh/Kawahirano/tobed/202311092022637.png" alt="image-20231109202245598"></p><p><img src="https://cdn.jsdelivr.net/gh/Kawahirano/tobed/202311092054210.png" alt="image-20231109205450110"></p>]]></content>
+        <content type="html"><![CDATA[<h2 id="新建一个数据库"><a href="#新建一个数据库" class="headerlink" title="新建一个数据库"></a>新建一个数据库</h2><p>首先登录<a href="https://www.mongodb.com/">MongoDB官网</a>,没有账号点<a href="https://www.mongodb.com/cloud/atlas/register">这里</a>,注册一个，登录成功之后</p><p><img src="https://cdn.jsdelivr.net/gh/Kawahirano/tobed/202311091944094.png" alt="image-20231109194436936"></p><p><img src="https://cdn.jsdelivr.net/gh/Kawahirano/tobed/202311091945190.png" alt="image-20231109194537121"></p><p><img src="https://cdn.jsdelivr.net/gh/Kawahirano/tobed/202311091947258.png" alt="image-20231109194746176"></p><p><img src="https://cdn.jsdelivr.net/gh/Kawahirano/tobed/202311091949648.png" alt="image-20231109194906563"></p><h2 id="登录vercel"><a href="#登录vercel" class="headerlink" title="登录vercel"></a>登录vercel</h2><p>登录到<a href="https://vercel.com/">vercel</a>,没有的同样注册一个</p><p>进入<a href="https://twikoo.js.org/backend.html#vercel-%E9%83%A8%E7%BD%B2">twikoo</a>,点击<strong>Deploy</strong>将 Twikoo 一键部署到 Vercel</p><p><img src="https://cdn.jsdelivr.net/gh/Kawahirano/tobed/202311091953177.png"></p><p><img src="https://cdn.jsdelivr.net/gh/Kawahirano/tobed/202311091955563.png" alt="image-20231109195523446"></p><p><img src="https://cdn.jsdelivr.net/gh/Kawahirano/tobed/202311091956997.png" alt="image-20231109195640935"></p><p><img src="https://cdn.jsdelivr.net/gh/Kawahirano/tobed/202311091959982.png" alt="image-20231109195942882"></p><p><img src="https://cdn.jsdelivr.net/gh/Kawahirano/tobed/202311092001487.png" alt="image-20231109200111413"></p><p><img src="https://cdn.jsdelivr.net/gh/Kawahirano/tobed/202311092001241.png" alt="image-20231109200137144"></p><p><img src="https://cdn.jsdelivr.net/gh/Kawahirano/tobed/202311092002102.png" alt="image-20231109200249035"></p><p><img src="https://cdn.jsdelivr.net/gh/Kawahirano/tobed/202311092003324.png" alt="image-20231109200311249"></p><p>mongodb+srv:&#x2F;&#x2F;admin:<a href="mailto:&#x31;&#50;&#x33;&#52;&#x35;&#x36;&#55;&#56;&#x2e;&#64;&#x63;&#x6c;&#117;&#x73;&#x74;&#x65;&#114;&#48;&#46;&#111;&#49;&#111;&#x71;&#x32;&#x67;&#x6f;&#x2e;&#109;&#111;&#x6e;&#103;&#x6f;&#100;&#98;&#x2e;&#110;&#x65;&#x74;">&#x31;&#50;&#x33;&#52;&#x35;&#x36;&#55;&#56;&#x2e;&#64;&#x63;&#x6c;&#117;&#x73;&#x74;&#x65;&#114;&#48;&#46;&#111;&#49;&#111;&#x71;&#x32;&#x67;&#x6f;&#x2e;&#109;&#111;&#x6e;&#103;&#x6f;&#100;&#98;&#x2e;&#110;&#x65;&#x74;</a>&#x2F;?retryWrites&#x3D;true&amp;w&#x3D;majority</p><p><img src="https://cdn.jsdelivr.net/gh/Kawahirano/tobed/202311092004519.png" alt="image-20231109200456440"></p><p><img src="https://cdn.jsdelivr.net/gh/Kawahirano/tobed/202311092005691.png" alt="image-20231109200547622"></p><p><img src="https://cdn.jsdelivr.net/gh/Kawahirano/tobed/202311092007774.png" alt="image-20231109200702653"></p><p><img src="https://cdn.jsdelivr.net/gh/Kawahirano/tobed/202311092007853.png" alt="image-20231109200747805"></p><p><img src="https://cdn.jsdelivr.net/gh/Kawahirano/tobed/202311092009219.png" alt="image-20231109200906162"></p><p><img src="https://cdn.jsdelivr.net/gh/Kawahirano/tobed/202311092009489.png" alt="image-20231109200957373"></p><p><img src="https://cdn.jsdelivr.net/gh/Kawahirano/tobed/202311092011374.png" alt="image-20231109201156312"></p><p><img src="https://cdn.jsdelivr.net/gh/Kawahirano/tobed/202311092014963.png" alt="image-20231109201436914"></p><p><img src="https://cdn.jsdelivr.net/gh/Kawahirano/tobed/202311092015775.png" alt="image-20231109201518695"></p><p><img src="https://cdn.jsdelivr.net/gh/Kawahirano/tobed/202311092018624.png" alt="image-20231109201833586"></p><p><img src="https://cdn.jsdelivr.net/gh/Kawahirano/tobed/202311092020652.png" alt="image-20231109202031617"></p><p><img src="https://cdn.jsdelivr.net/gh/Kawahirano/tobed/202311092031876.png" alt="image-20231109203155834"></p><p><img src="https://cdn.jsdelivr.net/gh/Kawahirano/tobed/202311092022637.png" alt="image-20231109202245598"></p><p><img src="https://cdn.jsdelivr.net/gh/Kawahirano/tobed/202311092054210.png" alt="image-20231109205450110"></p>]]></content>
       
       
       <categories>
@@ -274,9 +274,9 @@
     
     
     <entry>
-      <title>日常生活</title>
-      <link href="/dailyPhoto/index.html"/>
-      <url>/dailyPhoto/index.html</url>
+      <title>分类</title>
+      <link href="/categories/index.html"/>
+      <url>/categories/index.html</url>
       
         <content type="html"><![CDATA[]]></content>
       
@@ -285,9 +285,9 @@
     
     
     <entry>
-      <title>分类</title>
-      <link href="/categories/index.html"/>
-      <url>/categories/index.html</url>
+      <title>日常生活</title>
+      <link href="/dailyPhoto/index.html"/>
+      <url>/dailyPhoto/index.html</url>
       
         <content type="html"><![CDATA[]]></content>
       
@@ -318,6 +318,17 @@
     
     
     <entry>
+      <title>音乐馆</title>
+      <link href="/music/index.html"/>
+      <url>/music/index.html</url>
+      
+        <content type="html"><![CDATA[]]></content>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>link</title>
       <link href="/link/index.html"/>
       <url>/link/index.html</url>
@@ -340,11 +351,11 @@
     
     
     <entry>
-      <title>音乐馆</title>
-      <link href="/music/index.html"/>
-      <url>/music/index.html</url>
+      <title></title>
+      <link href="/webinfo/index.html"/>
+      <url>/webinfo/index.html</url>
       
-        <content type="html"><![CDATA[]]></content>
+        <content type="html"><![CDATA[<div class="timeline undefined"><div class='timeline-item headline'><div class='timeline-item-title'><div class='item-circle'><p>小站的发展史</p></div></div></div><div class='timeline-item'><div class='timeline-item-title'><div class='item-circle'><p>2023-11-09</p></div></div><div class='timeline-item-content'><ol><li><p>新增站内搜索功能</p></li><li><p>新增站内评论功能</p></li><li><p>新增小站日志功能板块</p></li></ol></div></div><div class='timeline-item'><div class='timeline-item-title'><div class='item-circle'><p>2023-11-06</p></div></div><div class='timeline-item-content'><ol><li>新增关于页面</li><li>新增闲言碎语页面</li></ol></div></div><div class='timeline-item'><div class='timeline-item-title'><div class='item-circle'><p>2023-11-05</p></div></div><div class='timeline-item-content'><ol><li>新增相册集页面</li><li>新增留言板页面</li></ol></div></div><div class='timeline-item'><div class='timeline-item-title'><div class='item-circle'><p>2023-11-03</p></div></div><div class='timeline-item-content'><ol><li>新增分类页面</li><li>新增标签页面</li><li>新增友人帐页面</li><li>新增音乐馆页面</li></ol></div></div><div class='timeline-item'><div class='timeline-item-title'><div class='item-circle'><p>2023-11-02</p></div></div><div class='timeline-item-content'><ul><li>完善基本信息</li></ul></div></div><div class='timeline-item'><div class='timeline-item-title'><div class='item-circle'><p>2023-11-01</p></div></div><div class='timeline-item-content'><ul><li>小站诞生了</li></ul></div></div></div>]]></content>
       
     </entry>
     
@@ -356,17 +367,6 @@
       <url>/wordScenery/index.html</url>
       
         <content type="html"><![CDATA[]]></content>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title></title>
-      <link href="/webinfo/index.html"/>
-      <url>/webinfo/index.html</url>
-      
-        <content type="html"><![CDATA[<div class="timeline undefined"><div class='timeline-item headline'><div class='timeline-item-title'><div class='item-circle'><p>小站的发展史</p></div></div></div><div class='timeline-item'><div class='timeline-item-title'><div class='item-circle'><p>2023-11-09</p></div></div><div class='timeline-item-content'><ol><li><p>新增站内搜索功能</p></li><li><p>新增站内评论功能</p></li><li><p>新增小站日志功能板块</p></li></ol></div></div><div class='timeline-item'><div class='timeline-item-title'><div class='item-circle'><p>2023-11-01</p></div></div><div class='timeline-item-content'><ul><li>小站诞生了</li></ul></div></div></div>]]></content>
       
     </entry>
     
