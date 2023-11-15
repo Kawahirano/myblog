@@ -4,6 +4,19 @@
   
     
     <entry>
+      <title>HTML5+CSS3</title>
+      <link href="/posts/5bd177d9.html"/>
+      <url>/posts/5bd177d9.html</url>
+      
+        <content type="html"><![CDATA[]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>资料分析</title>
       <link href="/posts/9362be7c.html"/>
       <url>/posts/9362be7c.html</url>
@@ -31,13 +44,25 @@
     
     
     <entry>
-      <title></title>
-      <link href="/posts/0.html"/>
-      <url>/posts/0.html</url>
+      <title>无服务器搭建自己的ChatGPT</title>
+      <link href="/posts/e02319ee.html"/>
+      <url>/posts/e02319ee.html</url>
       
-        <content type="html"><![CDATA[<p>title: 无服务器搭建自己的ChatGPT<br>abbrlink: e02319ee<br>date: 2023-11-10 20:59:11<br>tags:</p><h1 id="部署项目"><a href="#部署项目" class="headerlink" title="部署项目"></a>部署项目</h1><ol><li><p>进入<a href="https://githubfast.com/Yidadaa/ChatGPT-Next-Web">ChatGPT-Next-Web</a> Github仓库,点击右上角<strong>Fork</strong>,创建fork</p><p><img src="C:%5CUsers%5Clcp%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20231110210249282.png" alt="image-20231110210249282"></p></li></ol><p><img src="C:%5CUsers%5Clcp%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20231110210404732.png" alt="image-20231110210404732"></p><ol start="2"><li>登录<a href="https://vercel.com/">Vercel</a>账号，点击右上角<strong>Add New project</strong></li></ol><p><img src="C:%5CUsers%5Clcp%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20231110210548711.png" alt="image-20231110210548711"></p><ol start="3"><li>选择刚刚fork的仓库，点击<strong>Import</strong></li></ol><p><img src="C:%5CUsers%5Clcp%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20231110210845108.png" alt="image-20231110210845108"></p><ol start="4"><li>点击<strong>Deploy</strong>,将刚刚fork的仓库部署到Vercel</li></ol><p><img src="C:%5CUsers%5Clcp%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20231110211014446.png" alt="image-20231110211014446"></p><div class="note info flag flat"><p>项目正在部署中，部署时间有点久。请耐心等待</p></div><p><img src="C:%5CUsers%5Clcp%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20231110211142923.png" alt="image-20231110211142923"></p><div class="note flag flat"><p>显示以下信息代表部署完成</p></div><p><img src="C:%5CUsers%5Clcp%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20231110211246408.png" alt="image-20231110211246408"></p><h1 id="配置环境变量"><a href="#配置环境变量" class="headerlink" title="配置环境变量"></a>配置环境变量</h1><ol><li>这里需要<strong>API key</strong>，没有的去<a href="https://githubfast.com/chatanywhere/GPT_API_free">这里</a>申请一下</li></ol><p><img src="C:%5CUsers%5Clcp%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20231110212734263.png" alt="image-20231110212734263"></p><ol start="2"><li>将获取到的key保存起来，后面会用到</li></ol><p><img src="C:%5CUsers%5Clcp%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20231111181756115.png" alt="image-20231111181756115"></p><ol start="3"><li>找到项目下的<strong>Settinngs</strong> -&gt; <strong>Environment Variables</strong></li></ol><p><img src="C:%5CUsers%5Clcp%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20231111182428492.png" alt="image-20231111182428492"></p><ol start="4"><li>新建环境变量,将以下代码依次填入Key，Value（OPENAI_API_KE为你的Key,CODE为你的密码）<ul><li>BASE_URL&#x3D;<a href="https://api.chatanywhere.com.cn/">https://api.chatanywhere.com.cn</a></li><li>OPENAI_API_KEY&#x3D;sk-emBfGYqwFXkNF2VIe3XlrzeAs7opCK4018ltHQnzeGFItWhg</li><li>CODE&#x3D;123456</li></ul></li></ol><p><img src="C:%5CUsers%5Clcp%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20231111182717810.png" alt="image-20231111182717810"></p><div class="note success flag flat"><p>出现以下界面证明配置成功</p></div><p><img src="C:%5CUsers%5Clcp%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20231111183700490.png" alt="image-20231111183700490"></p><h1 id="自定义域名"><a href="#自定义域名" class="headerlink" title="自定义域名"></a>自定义域名</h1><ol><li>点击右上角<strong>Domains</strong>,进入域名配置</li></ol><p><img src="C:%5CUsers%5Clcp%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20231110215542877.png" alt="image-20231110215542877"></p><ol start="2"><li>输入你的域名点击<strong>Add</strong></li></ol><p><img src="C:%5CUsers%5Clcp%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20231110215653948.png" alt="image-20231110215653948"></p><ol start="3"><li>出现以下界面，将图中三个值复制</li></ol><p><img src="C:%5CUsers%5Clcp%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20231110215719535.png" alt="image-20231110215719535"></p><ol start="4"><li>在你的域名DNS管理面板，将刚刚的三个值配置好，点击<strong>保存</strong></li></ol><p><img src="C:%5CUsers%5Clcp%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20231110215840653.png" alt="image-20231110215840653"></p><div class="note success flag flat"><p>在你的浏览器输入你刚刚配置的域名，出现以下界面证明配置成功</p></div><p><img src="C:%5CUsers%5Clcp%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20231110215948539.png" alt="image-20231110215948539"></p>]]></content>
+        <content type="html"><![CDATA[<h1 id="部署项目"><a href="#部署项目" class="headerlink" title="部署项目"></a>部署项目</h1><ol><li><p>进入<a href="https://githubfast.com/Yidadaa/ChatGPT-Next-Web">ChatGPT-Next-Web</a> Github仓库,点击右上角<strong>Fork</strong>,创建fork</p><p><img src="C:%5CUsers%5Clcp%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20231110210249282.png" alt="image-20231110210249282"></p></li></ol><p><img src="C:%5CUsers%5Clcp%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20231110210404732.png" alt="image-20231110210404732"></p><ol start="2"><li>登录<a href="https://vercel.com/">Vercel</a>账号，点击右上角<strong>Add New project</strong></li></ol><p><img src="C:%5CUsers%5Clcp%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20231110210548711.png" alt="image-20231110210548711"></p><ol start="3"><li>选择刚刚fork的仓库，点击<strong>Import</strong></li></ol><p><img src="C:%5CUsers%5Clcp%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20231110210845108.png" alt="image-20231110210845108"></p><ol start="4"><li>点击<strong>Deploy</strong>,将刚刚fork的仓库部署到Vercel</li></ol><p><img src="C:%5CUsers%5Clcp%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20231110211014446.png" alt="image-20231110211014446"></p><div class="note info flag flat"><p>项目正在部署中，部署时间有点久。请耐心等待</p></div><p><img src="C:%5CUsers%5Clcp%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20231110211142923.png" alt="image-20231110211142923"></p><div class="note flag flat"><p>显示以下信息代表部署完成</p></div><p><img src="C:%5CUsers%5Clcp%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20231110211246408.png" alt="image-20231110211246408"></p><h1 id="配置环境变量"><a href="#配置环境变量" class="headerlink" title="配置环境变量"></a>配置环境变量</h1><ol><li>这里需要<strong>API key</strong>，没有的去<a href="https://githubfast.com/chatanywhere/GPT_API_free">这里</a>申请一下</li></ol><p><img src="C:%5CUsers%5Clcp%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20231110212734263.png" alt="image-20231110212734263"></p><ol start="2"><li>将获取到的key保存起来，后面会用到</li></ol><p><img src="C:%5CUsers%5Clcp%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20231111181756115.png" alt="image-20231111181756115"></p><ol start="3"><li>找到项目下的<strong>Settinngs</strong> -&gt; <strong>Environment Variables</strong></li></ol><p><img src="C:%5CUsers%5Clcp%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20231111182428492.png" alt="image-20231111182428492"></p><ol start="4"><li>新建环境变量,将以下代码依次填入Key，Value（OPENAI_API_KE为你的Key,CODE为你的密码）<ul><li>BASE_URL&#x3D;<a href="https://api.chatanywhere.com.cn/">https://api.chatanywhere.com.cn</a></li><li>OPENAI_API_KEY&#x3D;sk-emBfGYqwFXkNF2VIe3XlrzeAs7opCK4018ltHQnzeGFItWhg</li><li>CODE&#x3D;123456</li></ul></li></ol><p><img src="C:%5CUsers%5Clcp%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20231111182717810.png" alt="image-20231111182717810"></p><div class="note success flag flat"><p>出现以下界面证明配置成功</p></div><p><img src="C:%5CUsers%5Clcp%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20231111183700490.png" alt="image-20231111183700490"></p><h1 id="自定义域名"><a href="#自定义域名" class="headerlink" title="自定义域名"></a>自定义域名</h1><ol><li>点击右上角<strong>Domains</strong>,进入域名配置</li></ol><p><img src="C:%5CUsers%5Clcp%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20231110215542877.png" alt="image-20231110215542877"></p><ol start="2"><li>输入你的域名点击<strong>Add</strong></li></ol><p><img src="C:%5CUsers%5Clcp%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20231110215653948.png" alt="image-20231110215653948"></p><ol start="3"><li>出现以下界面，将图中三个值复制</li></ol><p><img src="C:%5CUsers%5Clcp%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20231110215719535.png" alt="image-20231110215719535"></p><ol start="4"><li>在你的域名DNS管理面板，将刚刚的三个值配置好，点击<strong>保存</strong></li></ol><p><img src="C:%5CUsers%5Clcp%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20231110215840653.png" alt="image-20231110215840653"></p><div class="note success flag flat"><p>在你的浏览器输入你刚刚配置的域名，出现以下界面证明配置成功</p></div><p><img src="C:%5CUsers%5Clcp%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20231110215948539.png" alt="image-20231110215948539"></p>]]></content>
       
       
+      <categories>
+          
+          <category> 教程 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> ChatGPT </tag>
+            
+        </tags>
       
     </entry>
     
@@ -335,9 +360,9 @@
     
     
     <entry>
-      <title>相册集</title>
-      <link href="/album/index.html"/>
-      <url>/album/index.html</url>
+      <title>分类</title>
+      <link href="/categories/index.html"/>
+      <url>/categories/index.html</url>
       
         <content type="html"><![CDATA[]]></content>
       
@@ -346,9 +371,20 @@
     
     
     <entry>
-      <title>分类</title>
-      <link href="/categories/index.html"/>
-      <url>/categories/index.html</url>
+      <title>日常生活</title>
+      <link href="/dailyPhoto/index.html"/>
+      <url>/dailyPhoto/index.html</url>
+      
+        <content type="html"><![CDATA[]]></content>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>相册集</title>
+      <link href="/album/index.html"/>
+      <url>/album/index.html</url>
       
         <content type="html"><![CDATA[]]></content>
       
@@ -362,17 +398,6 @@
       <url>/css/custom.css</url>
       
         <content type="html"><![CDATA[/* 欢迎信息 */#welcome-info {    background: linear-gradient(45deg, #e6f5f4, #e7f0ef);    border-radius: 18px;    padding: 8px;  }  [data-theme="dark"] #welcome-info {    background: #212121;  }]]></content>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>日常生活</title>
-      <link href="/dailyPhoto/index.html"/>
-      <url>/dailyPhoto/index.html</url>
-      
-        <content type="html"><![CDATA[]]></content>
       
     </entry>
     
@@ -423,17 +448,6 @@
     
     
     <entry>
-      <title>音乐馆</title>
-      <link href="/music/index.html"/>
-      <url>/music/index.html</url>
-      
-        <content type="html"><![CDATA[]]></content>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>标签</title>
       <link href="/tags/index.html"/>
       <url>/tags/index.html</url>
@@ -450,6 +464,17 @@
       <url>/webinfo/index.html</url>
       
         <content type="html"><![CDATA[<div class="timeline undefined"><div class='timeline-item headline'><div class='timeline-item-title'><div class='item-circle'><p>小站的发展史</p></div></div></div><div class='timeline-item'><div class='timeline-item-title'><div class='item-circle'><p>2023-11-10</p></div></div><div class='timeline-item-content'><ol><li>修正站长位置</li><li>新增加密功能</li><li>留言板独立</li><li>增加申请友链功能</li></ol></div></div><div class='timeline-item'><div class='timeline-item-title'><div class='item-circle'><p>2023-11-09</p></div></div><div class='timeline-item-content'><ol><li><p>新增站内搜索功能</p></li><li><p>新增站内评论功能</p></li><li><p>新增小站日志功能板块</p></li><li><p>新增侧边栏时钟</p></li><li><p>新增侧边欢迎信息显示地理位置</p></li></ol></div></div><div class='timeline-item'><div class='timeline-item-title'><div class='item-circle'><p>2023-11-06</p></div></div><div class='timeline-item-content'><ol><li>新增关于页面</li><li>新增闲言碎语页面</li></ol></div></div><div class='timeline-item'><div class='timeline-item-title'><div class='item-circle'><p>2023-11-05</p></div></div><div class='timeline-item-content'><ol><li>新增相册集页面</li><li>新增留言板页面</li></ol></div></div><div class='timeline-item'><div class='timeline-item-title'><div class='item-circle'><p>2023-11-03</p></div></div><div class='timeline-item-content'><ol><li>新增分类页面</li><li>新增标签页面</li><li>新增友人帐页面</li><li>新增音乐馆页面</li></ol></div></div><div class='timeline-item'><div class='timeline-item-title'><div class='item-circle'><p>2023-11-02</p></div></div><div class='timeline-item-content'><ul><li>完善基本信息</li></ul></div></div><div class='timeline-item'><div class='timeline-item-title'><div class='item-circle'><p>2023-11-01</p></div></div><div class='timeline-item-content'><ul><li>小站诞生了</li></ul></div></div></div>]]></content>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>音乐馆</title>
+      <link href="/music/index.html"/>
+      <url>/music/index.html</url>
+      
+        <content type="html"><![CDATA[]]></content>
       
     </entry>
     
