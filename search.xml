@@ -360,31 +360,20 @@
     
     
     <entry>
-      <title>分类</title>
-      <link href="/categories/index.html"/>
-      <url>/categories/index.html</url>
-      
-        <content type="html"><![CDATA[]]></content>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>日常生活</title>
-      <link href="/dailyPhoto/index.html"/>
-      <url>/dailyPhoto/index.html</url>
-      
-        <content type="html"><![CDATA[]]></content>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>相册集</title>
       <link href="/album/index.html"/>
       <url>/album/index.html</url>
+      
+        <content type="html"><![CDATA[]]></content>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>分类</title>
+      <link href="/categories/index.html"/>
+      <url>/categories/index.html</url>
       
         <content type="html"><![CDATA[]]></content>
       
@@ -398,6 +387,17 @@
       <url>/css/custom.css</url>
       
         <content type="html"><![CDATA[/* 欢迎信息 */#welcome-info {    background: linear-gradient(45deg, #e6f5f4, #e7f0ef);    border-radius: 18px;    padding: 8px;  }  [data-theme="dark"] #welcome-info {    background: #212121;  }]]></content>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>日常生活</title>
+      <link href="/dailyPhoto/index.html"/>
+      <url>/dailyPhoto/index.html</url>
+      
+        <content type="html"><![CDATA[]]></content>
       
     </entry>
     
@@ -448,6 +448,17 @@
     
     
     <entry>
+      <title>音乐馆</title>
+      <link href="/music/index.html"/>
+      <url>/music/index.html</url>
+      
+        <content type="html"><![CDATA[]]></content>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>标签</title>
       <link href="/tags/index.html"/>
       <url>/tags/index.html</url>
@@ -464,17 +475,6 @@
       <url>/webinfo/index.html</url>
       
         <content type="html"><![CDATA[<div class="timeline undefined"><div class='timeline-item headline'><div class='timeline-item-title'><div class='item-circle'><p>小站的发展史</p></div></div></div><div class='timeline-item'><div class='timeline-item-title'><div class='item-circle'><p>2023-11-10</p></div></div><div class='timeline-item-content'><ol><li>修正站长位置</li><li>新增加密功能</li><li>留言板独立</li><li>增加申请友链功能</li></ol></div></div><div class='timeline-item'><div class='timeline-item-title'><div class='item-circle'><p>2023-11-09</p></div></div><div class='timeline-item-content'><ol><li><p>新增站内搜索功能</p></li><li><p>新增站内评论功能</p></li><li><p>新增小站日志功能板块</p></li><li><p>新增侧边栏时钟</p></li><li><p>新增侧边欢迎信息显示地理位置</p></li></ol></div></div><div class='timeline-item'><div class='timeline-item-title'><div class='item-circle'><p>2023-11-06</p></div></div><div class='timeline-item-content'><ol><li>新增关于页面</li><li>新增闲言碎语页面</li></ol></div></div><div class='timeline-item'><div class='timeline-item-title'><div class='item-circle'><p>2023-11-05</p></div></div><div class='timeline-item-content'><ol><li>新增相册集页面</li><li>新增留言板页面</li></ol></div></div><div class='timeline-item'><div class='timeline-item-title'><div class='item-circle'><p>2023-11-03</p></div></div><div class='timeline-item-content'><ol><li>新增分类页面</li><li>新增标签页面</li><li>新增友人帐页面</li><li>新增音乐馆页面</li></ol></div></div><div class='timeline-item'><div class='timeline-item-title'><div class='item-circle'><p>2023-11-02</p></div></div><div class='timeline-item-content'><ul><li>完善基本信息</li></ul></div></div><div class='timeline-item'><div class='timeline-item-title'><div class='item-circle'><p>2023-11-01</p></div></div><div class='timeline-item-content'><ul><li>小站诞生了</li></ul></div></div></div>]]></content>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>音乐馆</title>
-      <link href="/music/index.html"/>
-      <url>/music/index.html</url>
-      
-        <content type="html"><![CDATA[]]></content>
       
     </entry>
     
