@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>搭建自己的导航页</title>
+      <link href="/posts/98af473c.html"/>
+      <url>/posts/98af473c.html</url>
+      
+        <content type="html"><![CDATA[<h3 id="1️⃣-项目简介"><a href="#1️⃣-项目简介" class="headerlink" title="1️⃣ 项目简介"></a><strong>1️⃣ 项目简介</strong></h3><p><strong>项目地址：</strong> <a href="https://link.zhihu.com/?target=https://github.com/xjh22222228/nav">https://github.com/xjh22222228/nav</a></p><p>这款导航站和其他导航站最大的区别就是——这个导航站内置了八百多个实用网站，部署好了咱们可以直接用，非常方便</p><h3 id="2️⃣-fork-代码到自己的仓库"><a href="#2️⃣-fork-代码到自己的仓库" class="headerlink" title="2️⃣ fork 代码到自己的仓库"></a><strong>2️⃣ fork 代码到自己的仓库</strong></h3><p>先把项目 <code>fork</code> 到自己的仓库</p><p><img src="https://pic1.zhimg.com/80/v2-037c47cc581e9b1db0fdd261fd740ba0_720w.webp" alt="img"></p><p>以后作者如果有更新，兄弟们直接点击 <code>Sync fork</code> 就可以同步更新了</p><p><img src="https://pic4.zhimg.com/80/v2-865125b341ab915ba15ae547f5942f07_720w.webp" alt="img"></p><h3 id="3️⃣-Vercel-部署-nav"><a href="#3️⃣-Vercel-部署-nav" class="headerlink" title="3️⃣ Vercel 部署 nav"></a><strong>3️⃣ Vercel 部署 nav</strong></h3><p>打开 <code>https://vercel.com/</code></p><p>不得不说 <code>Vercel</code> 真的是一个好东西，以后二冰也会更新很多用 <code>Vercel</code> 部署的项目，绝对的生产力工具</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Add New ……` &gt;&gt; `Project</span><br></pre></td></tr></table></figure><p><img src="https://pic2.zhimg.com/80/v2-10c175db3ba5113dfccc4bd113bde519_720w.webp" alt="img"></p><p>找到刚刚 <code>fork</code> 的项目 &gt;&gt; <code>Import</code></p><p><img src="https://pic3.zhimg.com/80/v2-05b94421322d6b07718b5afe0185d712_720w.webp" alt="img"></p><p>import</p><p>可以修改 <code>Vercel</code> 项目名称 &gt;&gt; <code>Deploy</code></p><p><img src="https://pic1.zhimg.com/80/v2-a28f4846af3e9add7a87cce3ccaac68c_720w.webp" alt="img"></p><p>deploy</p><p>搭建完成，是的，就是这么简单。</p><p><img src="https://pic4.zhimg.com/80/v2-7f42e345c486cb608a295d4ea2f6fc13_720w.webp" alt="img"></p><h3 id="4️⃣-设置自定义域名"><a href="#4️⃣-设置自定义域名" class="headerlink" title="4️⃣ 设置自定义域名"></a><strong>4️⃣ 设置自定义域名</strong></h3><p><code>vercel</code> 分配的域名，因为众所周知的原因，我们无法直接访问，这里我们配置一下自己的域名，二冰只有一个阿里云的域名 <code>twoice.fun</code> ，以下以此域名为例</p><ul><li>添加记录</li><li>记录类型：<code>CNAME-将域名指向另外一个域名</code></li><li>主机记录：以 <code>mind</code> 为例</li><li>记录值：<code>cname.vercel-dns.com</code></li><li>确认即可</li></ul><p><img src="https://pic4.zhimg.com/80/v2-f1ceefc4557d58efbe9950b3095beda7_720w.webp" alt="img"></p><p>解析一个子域名</p><p>这样我们就解析了一个子域名 <code>mind.twoice.fun</code></p><p>返回刚刚创建的 <code>Vercel</code> 项目</p><ul><li><code>Settings</code> &gt;&gt; <code>Domains</code></li><li>输入我们刚刚解析的子域名 <code>mind.twoice.fun</code></li><li><code>add</code></li></ul><p><img src="https://pic4.zhimg.com/80/v2-8cfb1bba0306e3c9d42a9c81cb275fe3_720w.webp" alt="img"></p><p>Vercel 添加子域名</p><p>等个一两分钟就添加好了</p><h3 id="5️⃣-enjoy-it"><a href="#5️⃣-enjoy-it" class="headerlink" title="5️⃣ enjoy it"></a><strong>5️⃣ enjoy it</strong></h3><p>输入你自己的子域名 enjoy it</p><p>二冰这里输入的是 <code>mind.twoice.fun</code></p><p>默认主题：light</p><p><img src="https://pic3.zhimg.com/80/v2-67d3f50db866ca111bd46dfcf437c05e_720w.webp" alt="img"></p><p>light</p><p>除了默认主题之外，还有另外的四种主题，兄弟们可以选择自己喜欢的主题</p><p>Sim</p><p><img src="https://pic3.zhimg.com/80/v2-ffb3df21f997603e5686ddf28c00ddd2_720w.webp" alt="img"></p><p>Side</p><p><img src="https://pic4.zhimg.com/80/v2-ee032802f7b762a99e568d8375fdba17_720w.webp" alt="img"></p><p>Shortcut</p><p><img src="https://pic2.zhimg.com/80/v2-7c0bb9d04eb4949fb51b0227c0cc8aa9_720w.webp" alt="img"></p><p>App</p><p><img src="https://pic2.zhimg.com/80/v2-a1618a03d80ed594d92111e2f8552b89_720w.webp" alt="img"></p><h3 id="6️⃣-导航站后台"><a href="#6️⃣-导航站后台" class="headerlink" title="6️⃣ 导航站后台"></a><strong>6️⃣ 导航站后台</strong></h3><p>是的，导航站有后台，你可以登录后台增删改减你的导航站</p><p>①、申请 <code>github</code> 的 <code>token</code></p><p>通过这个链接申请一个 <code>token</code>，如果不会操作，自行百度申请一下吧</p><p><a href="https://link.zhihu.com/?target=https://github.com/settings/tokens">https://github.com/settings/tokens</a></p><p>①、在你刚刚 <code>fork</code> 的仓库 &gt;&gt; <code>branch</code></p><p><img src="https://pic4.zhimg.com/80/v2-0973dc8875d110ad84e0f69bd92a3f9f_720w.webp" alt="img"></p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">New branch</span><br></pre></td></tr></table></figure><p><img src="https://pic1.zhimg.com/80/v2-a46080edd952f3933fcc59f4e67741f4_720w.webp" alt="img"></p><p>输入 <code>image</code> &gt;&gt; <code>Create New branch</code></p><p><img src="https://pic1.zhimg.com/80/v2-83d9cd863399dc9c34ff219b707b4aa4_720w.webp" alt="img"></p><p>创建一个</p><p>③、修改项目配置文件 <code>nav.config.ts</code></p><p>点击仓库的 <code>nav.config.ts</code> 文件 &gt;&gt; 点击修改 &gt;&gt; 将地址换成自己的仓库地址</p><p><img src="https://pic4.zhimg.com/80/v2-d074cb40f9a77f45187aa4ba5d6799db_720w.webp" alt="img"></p><p>修改项目配置文件 nav.config.ts</p><p>修改完别忘了点一下 <code>Commit changes...</code></p><p><img src="https://pic3.zhimg.com/80/v2-d242004e9330e3a40583af9241e8a2c6_720w.webp" alt="img"></p><p>Commit changes…</p><p>等一会儿输入 <code>你自己的域名/#/system</code> 即可访问</p><p>这里我们输入 <code>mind.twoice.fun/#/system</code></p><p>输入刚刚申请的 <code>token</code></p><p><img src="https://pic1.zhimg.com/80/v2-81b5daaafe68fe3bc349de0b7da3c160_720w.webp" alt="img"></p><p>你的域名&#x2F;#&#x2F;system</p><p>就可以进入后台啦</p><p><img src="https://pic1.zhimg.com/80/v2-da991c8dea75acb4f2e8486ff7e7df38_720w.webp" alt="img"></p><p>成功进入后台</p><p>好了，今天的分享就到这了，更多的功能兄弟们可以自行探索，真的是一款良心的导航站。</p><p>有需要的兄弟们，赶紧操练起来吧！如果你有什么 <code>想玩的项目</code> 或者 <code>想要解决什么问题</code> 都可以 <code>留言</code> 或者 <code>私信</code> 跟二冰说，二冰肯定给你优先安排</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 教程 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 建站教程 项目 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>react笔记</title>
       <link href="/posts/27fcdfc0.html"/>
       <url>/posts/27fcdfc0.html</url>
@@ -462,9 +487,9 @@
     
     
     <entry>
-      <title>音乐馆</title>
-      <link href="/music/index.html"/>
-      <url>/music/index.html</url>
+      <title>link</title>
+      <link href="/link/index.html"/>
+      <url>/link/index.html</url>
       
         <content type="html"><![CDATA[]]></content>
       
@@ -473,9 +498,9 @@
     
     
     <entry>
-      <title>link</title>
-      <link href="/link/index.html"/>
-      <url>/link/index.html</url>
+      <title>音乐馆</title>
+      <link href="/music/index.html"/>
+      <url>/music/index.html</url>
       
         <content type="html"><![CDATA[]]></content>
       
