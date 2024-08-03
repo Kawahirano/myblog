@@ -4,9 +4,9 @@
   
     
     <entry>
-      <title>react笔记</title>
-      <link href="/posts/27fcdfc0.html"/>
-      <url>/posts/27fcdfc0.html</url>
+      <title>Spring Cache</title>
+      <link href="/posts/6160810.html"/>
+      <url>/posts/6160810.html</url>
       
         <content type="html"><![CDATA[<h2 id="Spring-Cache"><a href="#Spring-Cache" class="headerlink" title="Spring Cache"></a>Spring Cache</h2><p>Spring Cache 是一个框架，实现了基于注解的缓存功能，只需要简单地加一个注解，就能实现缓存功能。</p><p>Spring Cache 提供了一层抽象，底层可以切换不同的缓存实现，例如：</p><p>•EHCache</p><p>•Caffeine</p><p>•Redis</p><h3 id="常用注解："><a href="#常用注解：" class="headerlink" title="常用注解："></a>常用注解：</h3><table><thead><tr><th><strong>注解</strong></th><th><strong>说明</strong></th></tr></thead><tbody><tr><td><strong>@EnableCaching</strong></td><td><strong>开启缓存注解功能，通常加在启动类上</strong></td></tr><tr><td><strong>@Cacheable</strong></td><td><strong>在方法执行前先查询缓存中是否有数据，如果有数据，则直接返回缓存数据；如果没有缓存数据，调用方法并将方法返回值放到缓存中</strong></td></tr><tr><td><strong>@CachePut</strong></td><td><strong>将方法的返回值放到缓存中</strong></td></tr><tr><td><strong>@CacheEvict</strong></td><td><strong>将一条或多条数据从缓存中删除</strong></td></tr></tbody></table><h3 id="实现思路"><a href="#实现思路" class="headerlink" title="实现思路"></a>实现思路</h3><p>具体的实现思路如下：</p><p>•导入Spring Cache和Redis相关maven坐标</p><p>•在启动类上加入@EnableCaching注解，开启缓存注解功能</p><p>•在用户端接口SetmealController的 list 方法上加入@Cacheable注解</p><p>•在管理端接口SetmealController的 save、delete、update、startOrStop等方法上加入CacheEvict注解</p><ol><li><p>导入Spring Cache和Redis相关maven坐标</p><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-cache<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>2.7.3<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure></li><li><p>在启动类上加入@EnableCaching注解，开启缓存注解功能</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@SpringBootApplication</span></span><br><span class="line"><span class="meta">@EnableCaching</span> <span class="comment">//开启缓存注解功能</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">SkyApplication</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        SpringApplication.run(SkyApplication.class, args);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li><li><p>在用户端接口SetmealController的 list 方法上加入@Cacheable注解</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 根据分类id查询套餐</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> categoryId</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="meta">@Cacheable(cacheNames = RedisConstant.CACHE_SETMEAL_PREFIX,key = &quot;#categoryId&quot;)</span></span><br><span class="line"><span class="meta">@ApiOperation(&quot;根据分类id查询套餐&quot;)</span></span><br><span class="line"><span class="meta">@GetMapping(&quot;/list&quot;)</span></span><br><span class="line"><span class="keyword">public</span> Result&lt;List&lt;Setmeal&gt;&gt; <span class="title function_">listByCategoryId</span><span class="params">(Long categoryId)</span>&#123;</span><br><span class="line">    <span class="type">Setmeal</span> <span class="variable">setmeal</span> <span class="operator">=</span> Setmeal.builder()</span><br><span class="line">            .categoryId(categoryId)</span><br><span class="line">            .status(StatusConstant.ENABLE)</span><br><span class="line">            .build();</span><br><span class="line">    List&lt;Setmeal&gt; setmeals = setmealService.listByCategoryId(setmeal);</span><br><span class="line">    <span class="keyword">return</span> Result.success(setmeals);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li><li><p>在管理端接口SetmealController的 save、delete、update、startOrStop等方法上加入CacheEvict注解</p><ol><li>删除指定key</li></ol><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@ApiOperation(&quot;新增套餐&quot;)</span></span><br><span class="line"><span class="meta">@PostMapping</span></span><br><span class="line"><span class="meta">@CacheEvict(cacheNames = RedisConstant.CACHE_SETMEAL_PREFIX,key = &quot;#setmealDTO.categoryId&quot;)</span></span><br><span class="line"><span class="keyword">public</span> Result <span class="title function_">addSetmeal</span><span class="params">(<span class="meta">@RequestBody</span> SetmealDTO setmealDTO)</span> &#123;</span><br><span class="line">    log.info(<span class="string">&quot;新增套餐&#123;&#125;&quot;</span>,setmealDTO);</span><br><span class="line">    setmealService.addSetmeal(setmealDTO);</span><br><span class="line">    <span class="keyword">return</span> Result.success();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><ol start="2"><li><p>删除以某个key开头的所有</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@CacheEvict(cacheNames = RedisConstant.CACHE_SETMEAL_PREFIX,allEntries = true)</span></span><br><span class="line"><span class="meta">@ApiOperation(&quot;批量删除套餐&quot;)</span></span><br><span class="line"><span class="meta">@DeleteMapping</span></span><br><span class="line"><span class="keyword">public</span> Result <span class="title function_">delSetmeals</span><span class="params">(<span class="meta">@RequestParam</span> List ids)</span>&#123;</span><br><span class="line">    log.info(<span class="string">&quot;批量删除套餐&#123;&#125;&quot;</span>,ids);</span><br><span class="line">    setmealService.delSetmeals(ids);</span><br><span class="line">    <span class="keyword">return</span> Result.success();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li></ol></li></ol>]]></content>
       
@@ -435,17 +435,6 @@
     
     
     <entry>
-      <title></title>
-      <link href="/css/custom.css"/>
-      <url>/css/custom.css</url>
-      
-        <content type="html"><![CDATA[/* 欢迎信息 */#welcome-info {    background: linear-gradient(45deg, #e6f5f4, #e7f0ef);    border-radius: 18px;    padding: 8px;  }  [data-theme="dark"] #welcome-info {    background: #212121;  }]]></content>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>相册集</title>
       <link href="/album/index.html"/>
       <url>/album/index.html</url>
@@ -468,22 +457,22 @@
     
     
     <entry>
-      <title>日常生活</title>
-      <link href="/dailyPhoto/index.html"/>
-      <url>/dailyPhoto/index.html</url>
+      <title></title>
+      <link href="/css/custom.css"/>
+      <url>/css/custom.css</url>
       
-        <content type="html"><![CDATA[]]></content>
+        <content type="html"><![CDATA[/* 欢迎信息 */#welcome-info {    background: linear-gradient(45deg, #e6f5f4, #e7f0ef);    border-radius: 18px;    padding: 8px;  }  [data-theme="dark"] #welcome-info {    background: #212121;  }]]></content>
       
     </entry>
     
     
     
     <entry>
-      <title></title>
-      <link href="/json/music.json"/>
-      <url>/json/music.json</url>
+      <title>日常生活</title>
+      <link href="/dailyPhoto/index.html"/>
+      <url>/dailyPhoto/index.html</url>
       
-        <content type="html"><![CDATA[[{"name":"青花瓷","artist":"周杰伦","url":"https://npm.elemecdn.com/anzhiyu-music@1.0.4/青花瓷/青花瓷.mp3","cover":"https://y.qq.com/music/photo_new/T002R300x300M000002eFUFm2XYZ7z_2.jpg?max_age=2592000","lrc":"https://npm.elemecdn.com/anzhiyu-music@1.0.4/青花瓷/青花瓷.lrc"},{"name":"稻香","artist":"周杰伦","url":"https://npm.elemecdn.com/anzhiyu-music@1.0.1/周杰伦/稻香/稻香.mp3","cover":"https://y.qq.com/music/photo_new/T002R300x300M000002Neh8l0uciQZ_1.jpg?max_age=2592000","lrc":"https://npm.elemecdn.com/anzhiyu-music@1.0.1/周杰伦/稻香/稻香.lrc"},{"name":"晴天","artist":"周杰伦","url":"https://npm.elemecdn.com/anzhiyu-music@1.0.2/晴天/晴天.mp3","cover":"https://y.qq.com/music/photo_new/T002R300x300M000000MkMni19ClKG_3.jpg?max_age=2592000","lrc":"https://npm.elemecdn.com/anzhiyu-music@1.0.2/晴天/晴天.lrc"},{"name":"七里香","artist":"周杰伦","url":"https://npm.elemecdn.com/anzhiyu-music@1.0.2/七里香/七里香.mp3","cover":"https://y.qq.com/music/photo_new/T002R300x300M000003DFRzD192KKD_1.jpg?max_age=2592000","lrc":"https://npm.elemecdn.com/anzhiyu-music@1.0.2/七里香/七里香.lrc"},{"name":"花海","artist":"周杰伦","url":"https://npm.elemecdn.com/anzhiyu-music-jay@1.0.1/花海/花海.flac","cover":"https://y.qq.com/music/photo_new/T002R300x300M000002Neh8l0uciQZ_1.jpg?max_age=2592000","lrc":"https://npm.elemecdn.com/anzhiyu-music-jay@1.0.1/花海/花海.lrc"},{"name":"反方向的钟","artist":"周杰伦","url":"https://npm.elemecdn.com/anzhiyu-music-jay@1.0.1/反方向的钟/反方向的钟.flac","cover":"https://y.qq.com/music/photo_new/T002R300x300M000000f01724fd7TH_1.jpg?max_age=2592000","lrc":"https://npm.elemecdn.com/anzhiyu-music-jay@1.0.1/反方向的钟/反方向的钟.lrc"},{"name":"兰亭序","artist":"周杰伦","url":"https://npm.elemecdn.com/anzhiyu-music@1.0.1/周杰伦/兰亭序/兰亭序.mp3","cover":"https://y.qq.com/music/photo_new/T002R300x300M000002Neh8l0uciQZ_1.jpg?max_age=2592000","lrc":"https://npm.elemecdn.com/anzhiyu-music@1.0.1/周杰伦/兰亭序/兰亭序.lrc"},{"name":"说好的辛福呢","artist":"周杰伦","url":"https://npm.elemecdn.com/anzhiyu-music@1.0.2/说好的辛福呢/说好的辛福呢.mp3","cover":"https://y.qq.com/music/photo_new/T002R300x300M000002Neh8l0uciQZ_1.jpg?max_age=2592000","lrc":"https://npm.elemecdn.com/anzhiyu-music@1.0.2/说好的辛福呢/说好的幸福呢.lrc"},{"name":"等你下课 (with 杨瑞代)","artist":"周杰伦","url":"https://npm.elemecdn.com/anzhiyu-music@1.0.1/周杰伦/等你下课/等你下课.mp3","cover":"https://y.qq.com/music/photo_new/T002R300x300M000003bSL0v4bpKAx_1.jpg?max_age=2592000","lrc":"https://npm.elemecdn.com/anzhiyu-music@1.0.1/周杰伦/等你下课/等你下课.lrc"},{"name":"我落泪情绪零碎","artist":"周杰伦","url":"https://npm.elemecdn.com/anzhiyu-music@1.0.2/我落泪情绪零碎/我落泪情绪零碎.mp3","cover":"https://y.qq.com/music/photo_new/T002R300x300M000000bviBl4FjTpO_1.jpg?max_age=2592000","lrc":"https://npm.elemecdn.com/anzhiyu-music@1.0.2/我落泪情绪零碎/我落泪情绪零碎.lrc"},{"name":"听妈妈的话","artist":"周杰伦","url":"https://npm.elemecdn.com/anzhiyu-music@1.0.2/听妈妈的话/听妈妈的话.mp3","cover":"https://y.qq.com/music/photo_new/T002R300x300M000002jLGWe16Tf1H_1.jpg?max_age=2592000","lrc":"https://npm.elemecdn.com/anzhiyu-music@1.0.2/听妈妈的话/听妈妈的话.lrc"},{"name":"明明就","artist":"周杰伦","url":"https://npm.elemecdn.com/anzhiyu-music-jay@1.0.1/明明就/明明就.flac","cover":"https://y.qq.com/music/photo_new/T002R300x300M000003Ow85E3pnoqi_1.jpg?max_age=2592000","lrc":"https://npm.elemecdn.com/anzhiyu-music-jay@1.0.1/明明就/明明就.lrc"},{"name":"我是如此相信","artist":"周杰伦","url":"https://npm.elemecdn.com/anzhiyu-music-jay@1.0.1/我是如此相信/我是如此相信.flac","cover":"https://y.qq.com/music/photo_new/T002R300x300M000001hGx1Z0so1YX_1.jpg?max_age=2592000","lrc":"https://npm.elemecdn.com/anzhiyu-music-jay@1.0.1/我是如此相信/我是如此相信.lrc"},{"name":"发如雪","artist":"周杰伦","url":"https://npm.elemecdn.com/anzhiyu-music@1.0.3/发如雪/发如雪.mp3","cover":"https://y.qq.com/music/photo_new/T002R300x300M0000024bjiL2aocxT_3.jpg?max_age=2592000","lrc":"https://npm.elemecdn.com/anzhiyu-music@1.0.3/发如雪/发如雪.lrc"},{"name":"以父之名","artist":"周杰伦","url":"https://npm.elemecdn.com/anzhiyu-music@1.0.3/以父之名/以父之名.mp3","cover":"https://y.qq.com/music/photo_new/T002R300x300M000000MkMni19ClKG_3.jpg?max_age=2592000","lrc":"https://npm.elemecdn.com/anzhiyu-music@1.0.3/以父之名/以父之名.lrc"},{"name":"园游会","artist":"周杰伦","url":"https://npm.elemecdn.com/anzhiyu-music@1.0.3/园游会/园游会.flac","cover":"https://y.qq.com/music/photo_new/T002R300x300M000003DFRzD192KKD_1.jpg?max_age=2592000","lrc":"https://npm.elemecdn.com/anzhiyu-music@1.0.3/园游会/园游会.lrc"},{"name":"本草纲目","artist":"周杰伦","url":"https://npm.elemecdn.com/anzhiyu-music@1.0.4/本草纲目/本草纲目.mp3","cover":"https://y.qq.com/music/photo_new/T002R300x300M000002jLGWe16Tf1H_1.jpg?max_age=2592000","lrc":"https://npm.elemecdn.com/anzhiyu-music@1.0.4/本草纲目/本草纲目.lrc"},{"name":"龙卷风","artist":"周杰伦","url":"https://npm.elemecdn.com/anzhiyu-music@1.0.4/龙卷风/龙卷风.mp3","cover":"https://y.qq.com/music/photo_new/T002R300x300M000000f01724fd7TH_1.jpg?max_age=2592000","lrc":"https://npm.elemecdn.com/anzhiyu-music@1.0.4/龙卷风/龙卷风.lrc"}]]]></content>
+        <content type="html"><![CDATA[]]></content>
       
     </entry>
     
@@ -512,31 +501,20 @@
     
     
     <entry>
+      <title></title>
+      <link href="/json/music.json"/>
+      <url>/json/music.json</url>
+      
+        <content type="html"><![CDATA[[{"name":"青花瓷","artist":"周杰伦","url":"https://npm.elemecdn.com/anzhiyu-music@1.0.4/青花瓷/青花瓷.mp3","cover":"https://y.qq.com/music/photo_new/T002R300x300M000002eFUFm2XYZ7z_2.jpg?max_age=2592000","lrc":"https://npm.elemecdn.com/anzhiyu-music@1.0.4/青花瓷/青花瓷.lrc"},{"name":"稻香","artist":"周杰伦","url":"https://npm.elemecdn.com/anzhiyu-music@1.0.1/周杰伦/稻香/稻香.mp3","cover":"https://y.qq.com/music/photo_new/T002R300x300M000002Neh8l0uciQZ_1.jpg?max_age=2592000","lrc":"https://npm.elemecdn.com/anzhiyu-music@1.0.1/周杰伦/稻香/稻香.lrc"},{"name":"晴天","artist":"周杰伦","url":"https://npm.elemecdn.com/anzhiyu-music@1.0.2/晴天/晴天.mp3","cover":"https://y.qq.com/music/photo_new/T002R300x300M000000MkMni19ClKG_3.jpg?max_age=2592000","lrc":"https://npm.elemecdn.com/anzhiyu-music@1.0.2/晴天/晴天.lrc"},{"name":"七里香","artist":"周杰伦","url":"https://npm.elemecdn.com/anzhiyu-music@1.0.2/七里香/七里香.mp3","cover":"https://y.qq.com/music/photo_new/T002R300x300M000003DFRzD192KKD_1.jpg?max_age=2592000","lrc":"https://npm.elemecdn.com/anzhiyu-music@1.0.2/七里香/七里香.lrc"},{"name":"花海","artist":"周杰伦","url":"https://npm.elemecdn.com/anzhiyu-music-jay@1.0.1/花海/花海.flac","cover":"https://y.qq.com/music/photo_new/T002R300x300M000002Neh8l0uciQZ_1.jpg?max_age=2592000","lrc":"https://npm.elemecdn.com/anzhiyu-music-jay@1.0.1/花海/花海.lrc"},{"name":"反方向的钟","artist":"周杰伦","url":"https://npm.elemecdn.com/anzhiyu-music-jay@1.0.1/反方向的钟/反方向的钟.flac","cover":"https://y.qq.com/music/photo_new/T002R300x300M000000f01724fd7TH_1.jpg?max_age=2592000","lrc":"https://npm.elemecdn.com/anzhiyu-music-jay@1.0.1/反方向的钟/反方向的钟.lrc"},{"name":"兰亭序","artist":"周杰伦","url":"https://npm.elemecdn.com/anzhiyu-music@1.0.1/周杰伦/兰亭序/兰亭序.mp3","cover":"https://y.qq.com/music/photo_new/T002R300x300M000002Neh8l0uciQZ_1.jpg?max_age=2592000","lrc":"https://npm.elemecdn.com/anzhiyu-music@1.0.1/周杰伦/兰亭序/兰亭序.lrc"},{"name":"说好的辛福呢","artist":"周杰伦","url":"https://npm.elemecdn.com/anzhiyu-music@1.0.2/说好的辛福呢/说好的辛福呢.mp3","cover":"https://y.qq.com/music/photo_new/T002R300x300M000002Neh8l0uciQZ_1.jpg?max_age=2592000","lrc":"https://npm.elemecdn.com/anzhiyu-music@1.0.2/说好的辛福呢/说好的幸福呢.lrc"},{"name":"等你下课 (with 杨瑞代)","artist":"周杰伦","url":"https://npm.elemecdn.com/anzhiyu-music@1.0.1/周杰伦/等你下课/等你下课.mp3","cover":"https://y.qq.com/music/photo_new/T002R300x300M000003bSL0v4bpKAx_1.jpg?max_age=2592000","lrc":"https://npm.elemecdn.com/anzhiyu-music@1.0.1/周杰伦/等你下课/等你下课.lrc"},{"name":"我落泪情绪零碎","artist":"周杰伦","url":"https://npm.elemecdn.com/anzhiyu-music@1.0.2/我落泪情绪零碎/我落泪情绪零碎.mp3","cover":"https://y.qq.com/music/photo_new/T002R300x300M000000bviBl4FjTpO_1.jpg?max_age=2592000","lrc":"https://npm.elemecdn.com/anzhiyu-music@1.0.2/我落泪情绪零碎/我落泪情绪零碎.lrc"},{"name":"听妈妈的话","artist":"周杰伦","url":"https://npm.elemecdn.com/anzhiyu-music@1.0.2/听妈妈的话/听妈妈的话.mp3","cover":"https://y.qq.com/music/photo_new/T002R300x300M000002jLGWe16Tf1H_1.jpg?max_age=2592000","lrc":"https://npm.elemecdn.com/anzhiyu-music@1.0.2/听妈妈的话/听妈妈的话.lrc"},{"name":"明明就","artist":"周杰伦","url":"https://npm.elemecdn.com/anzhiyu-music-jay@1.0.1/明明就/明明就.flac","cover":"https://y.qq.com/music/photo_new/T002R300x300M000003Ow85E3pnoqi_1.jpg?max_age=2592000","lrc":"https://npm.elemecdn.com/anzhiyu-music-jay@1.0.1/明明就/明明就.lrc"},{"name":"我是如此相信","artist":"周杰伦","url":"https://npm.elemecdn.com/anzhiyu-music-jay@1.0.1/我是如此相信/我是如此相信.flac","cover":"https://y.qq.com/music/photo_new/T002R300x300M000001hGx1Z0so1YX_1.jpg?max_age=2592000","lrc":"https://npm.elemecdn.com/anzhiyu-music-jay@1.0.1/我是如此相信/我是如此相信.lrc"},{"name":"发如雪","artist":"周杰伦","url":"https://npm.elemecdn.com/anzhiyu-music@1.0.3/发如雪/发如雪.mp3","cover":"https://y.qq.com/music/photo_new/T002R300x300M0000024bjiL2aocxT_3.jpg?max_age=2592000","lrc":"https://npm.elemecdn.com/anzhiyu-music@1.0.3/发如雪/发如雪.lrc"},{"name":"以父之名","artist":"周杰伦","url":"https://npm.elemecdn.com/anzhiyu-music@1.0.3/以父之名/以父之名.mp3","cover":"https://y.qq.com/music/photo_new/T002R300x300M000000MkMni19ClKG_3.jpg?max_age=2592000","lrc":"https://npm.elemecdn.com/anzhiyu-music@1.0.3/以父之名/以父之名.lrc"},{"name":"园游会","artist":"周杰伦","url":"https://npm.elemecdn.com/anzhiyu-music@1.0.3/园游会/园游会.flac","cover":"https://y.qq.com/music/photo_new/T002R300x300M000003DFRzD192KKD_1.jpg?max_age=2592000","lrc":"https://npm.elemecdn.com/anzhiyu-music@1.0.3/园游会/园游会.lrc"},{"name":"本草纲目","artist":"周杰伦","url":"https://npm.elemecdn.com/anzhiyu-music@1.0.4/本草纲目/本草纲目.mp3","cover":"https://y.qq.com/music/photo_new/T002R300x300M000002jLGWe16Tf1H_1.jpg?max_age=2592000","lrc":"https://npm.elemecdn.com/anzhiyu-music@1.0.4/本草纲目/本草纲目.lrc"},{"name":"龙卷风","artist":"周杰伦","url":"https://npm.elemecdn.com/anzhiyu-music@1.0.4/龙卷风/龙卷风.mp3","cover":"https://y.qq.com/music/photo_new/T002R300x300M000000f01724fd7TH_1.jpg?max_age=2592000","lrc":"https://npm.elemecdn.com/anzhiyu-music@1.0.4/龙卷风/龙卷风.lrc"}]]]></content>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>link</title>
       <link href="/link/index.html"/>
       <url>/link/index.html</url>
-      
-        <content type="html"><![CDATA[]]></content>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>标签</title>
-      <link href="/tags/index.html"/>
-      <url>/tags/index.html</url>
-      
-        <content type="html"><![CDATA[]]></content>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>日常生活</title>
-      <link href="/wordScenery/index.html"/>
-      <url>/wordScenery/index.html</url>
       
         <content type="html"><![CDATA[]]></content>
       
@@ -556,11 +534,33 @@
     
     
     <entry>
+      <title>标签</title>
+      <link href="/tags/index.html"/>
+      <url>/tags/index.html</url>
+      
+        <content type="html"><![CDATA[]]></content>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>小站日志</title>
       <link href="/webinfo/index.html"/>
       <url>/webinfo/index.html</url>
       
         <content type="html"><![CDATA[<div class="timeline undefined"><div class='timeline-item headline'><div class='timeline-item-title'><div class='item-circle'><p>小站的发展史</p></div></div></div><div class='timeline-item'><div class='timeline-item-title'><div class='item-circle'><p>2023-11-10</p></div></div><div class='timeline-item-content'><ol><li>修正站长位置</li><li>新增加密功能</li><li>留言板独立</li><li>增加申请友链功能</li></ol></div></div><div class='timeline-item'><div class='timeline-item-title'><div class='item-circle'><p>2023-11-09</p></div></div><div class='timeline-item-content'><ol><li><p>新增站内搜索功能</p></li><li><p>新增站内评论功能</p></li><li><p>新增小站日志功能板块</p></li><li><p>新增侧边栏时钟</p></li><li><p>新增侧边欢迎信息显示地理位置</p></li></ol></div></div><div class='timeline-item'><div class='timeline-item-title'><div class='item-circle'><p>2023-11-06</p></div></div><div class='timeline-item-content'><ol><li>新增关于页面</li><li>新增闲言碎语页面</li></ol></div></div><div class='timeline-item'><div class='timeline-item-title'><div class='item-circle'><p>2023-11-05</p></div></div><div class='timeline-item-content'><ol><li>新增相册集页面</li><li>新增留言板页面</li></ol></div></div><div class='timeline-item'><div class='timeline-item-title'><div class='item-circle'><p>2023-11-03</p></div></div><div class='timeline-item-content'><ol><li>新增分类页面</li><li>新增标签页面</li><li>新增友人帐页面</li><li>新增音乐馆页面</li></ol></div></div><div class='timeline-item'><div class='timeline-item-title'><div class='item-circle'><p>2023-11-02</p></div></div><div class='timeline-item-content'><ul><li>完善基本信息</li></ul></div></div><div class='timeline-item'><div class='timeline-item-title'><div class='item-circle'><p>2023-11-01</p></div></div><div class='timeline-item-content'><ul><li>小站诞生了</li></ul></div></div></div>]]></content>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>日常生活</title>
+      <link href="/wordScenery/index.html"/>
+      <url>/wordScenery/index.html</url>
+      
+        <content type="html"><![CDATA[]]></content>
       
     </entry>
     
